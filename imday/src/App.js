@@ -1,28 +1,43 @@
 import './App.css';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { DataTable } from 'primereact/datatable';
-import { Column } from 'primereact/column';
-import "primereact/resources/themes/lara-light-indigo/theme.css"; //theme
-import "primereact/resources/primereact.min.css"; //core css
-import "primeicons/primeicons.css";
+import { Button } from 'reactstrap';
+import Navbar from './Components/Navbar';
 
 function App() {
-  const [solversDaysResponse, setsolversDaysResponse] = useState();
+  const [solversDaysResponse, setsolversDaysResponse] = useState([]);
   useEffect(() => {
-    axios.get('http://localhost:8080/im-day').then(response => setsolversDaysResponse(response.data));
+    axios.get('https://jonathan-imday.herokuapp.com/im-day').then(response => setsolversDaysResponse(response.data));
   }, []);
 
-    return (
-      <div>
-        <p className="titulo-imday">Responsáveis pela resolução dos Incidentes</p>
-          <div className="card">
-              <DataTable value={solversDaysResponse} responsiveLayout="scroll">
-                  <Column field="date" header="Data"></Column>
-                  <Column field="nameUser" header="Name"></Column>
-              </DataTable>
-          </div>
+  return (
+    <div>
+       <Navbar />
+      
+      <div className="justify-content-center mt-3">
+        <table className="table table-hover tableEdit">
+          <thead className="text-center">
+            <tr>
+              <th>Date</th>
+              <th>Nome</th>
+            </tr>
+          </thead>
+          <tbody>
+            {solversDaysResponse.map(solver =>
+              <tr>
+                <td>
+                  {solver.date}
+                </td>
+                <td>
+                {solver.nameUser === 'Sem Resolvedor' && 'Final de Semana'}
+                {solver.nameUser != 'Sem Resolvedor' && solver.nameUser}
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
       </div>
+    </div>
   );
 }
 
