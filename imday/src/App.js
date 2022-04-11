@@ -1,7 +1,6 @@
 import './App.css';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Button } from 'reactstrap';
 import Navbar from './Components/Navbar';
 
 function App() {
