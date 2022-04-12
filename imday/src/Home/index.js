@@ -23,12 +23,7 @@ const Home = () => {
                 <th>Nome</th>
               </tr>
             </thead>
-            <tbody>
-            {/* {product.categories.map(cat => (
-<span className="badge-category" key={cat.id}>
-{cat.name}
-</span>
-))} */}
+            <tbody>}
               {solversDaysResponse.map(solver =>
                 <tr>
                   <td>
