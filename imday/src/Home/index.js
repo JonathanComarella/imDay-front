@@ -23,7 +23,7 @@ const Home = () => {
                 <th>Nome</th>
               </tr>
             </thead>
-            <tbody>}
+            <tbody>
               {solversDaysResponse.map(solver =>
                 <tr>
                   <td>

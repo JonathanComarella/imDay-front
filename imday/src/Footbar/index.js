@@ -2,7 +2,6 @@ import './styles.css';
 
 const Footbar = () => (
   <div className="footer">
-      
       <a
           href="https://github.com/JonathanComarella"
           title='GitHub'
