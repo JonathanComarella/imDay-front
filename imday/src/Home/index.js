@@ -25,7 +25,7 @@ const Home = () => {
             </thead>
             <tbody>
               {solversDaysResponse.map(solver =>
-                <tr>
+                <tr key={solver.date}>
                   <td>
                     {solver.date}
                   </td>
