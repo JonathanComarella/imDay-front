@@ -1,0 +1,22 @@
+.textNavbar {
+    display: flex;
+    flex: 1;
+    justify-content: center !important;
+    position : relative;
+    font-weight: bold;
+    font-size: 26px;
+    background-color: #3f3f3f;
+    color: white;
+}
+
+.logo-uol {
+    width: 120px;
+    position: absolute;
+    left: 0;
+}
+
+@media(max-width: 800px) {
+    .logo-uol {
+        position: relative;
+    }
+}
